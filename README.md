@@ -2,7 +2,7 @@
 
 ## 📊 Overview
 
-This repository contains a complete solution for analyzing Ontario police use of force data (2023) using Snowflake Cortex Analyst and Intelligence. The project provides semantic data modeling, AI-powered analysis capabilities, and intelligent agent responses for law enforcement accountability and policy insights.
+This repository contains a complete solution for analyzing Ontario police use of force data (2023) using Snowflake Cortex Analyst and Intelligence. The project provides semantic data modeling, AI-powered analysis capabilities, intelligent agent responses, and sophisticated statistical reasoning frameworks for law enforcement accountability and policy insights.
 
 ## 🗂️ Dataset
 
@@ -25,17 +25,20 @@ CSV Data Files → Snowflake Tables → Semantic View → Cortex Analyst → Int
 - **Snowflake Data Warehouse**: Stores and processes police use of force data
 - **Semantic Data Model**: YAML configuration for AI understanding
 - **Cortex Analyst**: AI-powered analytical engine
-- **Intelligence Agent**: Natural language query interface
+- **Intelligence Agent**: Natural language query interface with advanced reasoning
 
 ## 📁 Repository Structure
 
 ```
-├── snowflake_table_definitions.sql     # Complete table schemas + semantic view
+├── snowflake_table_definitions.sql          # Complete table schemas + semantic view
 ├── police_use_of_force_semantic_model.yaml  # Cortex Analyst configuration
-├── agent_response_instructions.md      # AI agent behavior guidelines
-├── agent_sample_prompts.md            # 50+ example queries for testing
-├── SETUP_GUIDE.md                     # Step-by-step implementation guide
-└── README.md                          # This file
+├── agent_response_instructions.md           # AI agent behavior guidelines
+├── agent_sample_prompts.md                  # 50+ example queries for testing
+├── agent_planning_instructions.txt          # Statistical reasoning framework
+├── SETUP_GUIDE.md                          # Step-by-step implementation guide
+├── examples/                                # Sample queries and use cases
+├── .gitignore                              # Data protection configuration
+└── README.md                               # This file
 ```
 
 ## 🚀 Quick Start
@@ -73,7 +76,8 @@ CREATE STAGE uof_csv_stage;
 1. Create new agent in Snowflake Intelligence
 2. Connect to your Cortex Analyst semantic model  
 3. Use `agent_response_instructions.md` for system prompts
-4. Test with queries from `agent_sample_prompts.md`
+4. Implement `agent_planning_instructions.txt` for statistical reasoning
+5. Test with queries from `agent_sample_prompts.md`
 
 ## 🎯 Key Features
 
@@ -83,44 +87,70 @@ CREATE STAGE uof_csv_stage;
 - **Rich synonyms** for natural language understanding
 - **Business context** integration from data dictionary
 
-### AI-Powered Analysis
+### AI-Powered Analysis with Statistical Rigor
 - **Natural language queries** in plain English
-- **Automatic aggregations** and calculations
-- **Contextual responses** for sensitive law enforcement data
-- **Multi-dimensional analysis** across demographics, time, geography
+- **Advanced statistical reasoning** with built-in safeguards
+- **Progressive analysis strategies** from descriptive to causal inference
+- **Automatic significance testing** and confidence interval calculations
+- **Multi-dimensional disparity analysis** with proper controls
 
-### Sample Analysis Questions
-- *"What are the trends in use of force incidents by race and time period?"*
-- *"How often is deescalation attempted before using force?"*
-- *"Which demographics are most likely to experience serious force applications?"*
-- *"What is the relationship between weapon presence and injury outcomes?"*
+### Sophisticated Agent Intelligence
+- **Query decomposition** for complex multi-variable analysis
+- **Statistical planning framework** optimized for police data
+- **Ethical sensitivity protocols** for racial disparity research
+- **Quality assurance standards** ensuring analytical rigor
+
+### Sample Analysis Capabilities
+- *"Compare injury rates between racial groups while controlling for resistance level, weapon presence, and time of day"*
+- *"How do racial disparities in CEW usage vary by police service and officer backup presence?"*
+- *"What combinations of factors are most predictive of serious injury outcomes?"*
+- *"Analyze the statistical significance of deescalation effectiveness across demographic groups"*
 
 ## 📈 Analysis Capabilities
 
-### Demographic Analysis
-- Race, age, gender breakdowns
-- Disparity identification and measurement
-- Cross-demographic pattern analysis
+### Demographic Disparity Analysis
+- **Intersectional analysis** (race × age × gender × force type)
+- **Statistical significance testing** with confidence intervals
+- **Controlled comparisons** accounting for confounding variables
+- **Effect size calculations** beyond simple p-values
 
-### Force Type & Escalation
-- Physical control vs. intermediate vs. lethal weapons
-- Deescalation attempt tracking and effectiveness
-- Force continuum progression analysis
+### Force Type & Escalation Analysis
+- **Force continuum progression** tracking
+- **Deescalation effectiveness measurement** with statistical controls
+- **Proportionality assessment** between threat and response
+- **Multi-step escalation pattern identification**
 
-### Temporal Patterns
-- Time of day, day of week, seasonal trends
-- Shift-based analysis
-- Emergency response timing
+### Temporal & Geographic Patterns
+- **Time-series analysis** with seasonal trend detection
+- **Geographic disparity measurement** across police services
+- **Shift and assignment type** impact analysis
+- **Location-based risk factor** assessment
 
-### Geographic Insights
-- Police service comparisons
-- Municipal vs. provincial policing patterns
-- Location type impact analysis
+### Advanced Statistical Methods
+- **Multi-variable regression** analysis capabilities
+- **Interaction effect testing** for complex relationships
+- **Sample size adequacy** verification and power analysis
+- **Robustness checking** with alternative specifications
 
-### Officer Safety & Outcomes
-- Injury rates (officers and individuals)
-- Medical treatment requirements
-- Multi-officer incident patterns
+## 🧠 Agent Intelligence Framework
+
+### Statistical Reasoning Protocol
+- **Query complexity classification** (Simple → Complex → Advanced)
+- **Progressive analysis building** from descriptive to analytical
+- **Automatic confounder identification** and control strategies
+- **Statistical safeguards** preventing common analytical errors
+
+### Ethical Analysis Guidelines
+- **Sensitivity checkpoints** for racial disparity research
+- **Context-aware interpretation** of sensitive findings
+- **Bias-aware methodology** acknowledging data limitations
+- **Solution-oriented framing** supporting accountability goals
+
+### Quality Assurance Standards
+- **Sample size verification** for all subgroup analyses
+- **Base rate contextualization** for disparity findings
+- **Confidence interval reporting** for rate comparisons
+- **Multiple testing corrections** when appropriate
 
 ## 🔒 Data Privacy & Ethics
 
@@ -128,20 +158,21 @@ CREATE STAGE uof_csv_stage;
 - **Sensitive Data**: Contains information about police-civilian interactions
 - **Privacy Protection**: No personally identifiable information
 - **Analytical Purpose**: Designed for policy analysis and accountability
-- **Objective Analysis**: AI agent maintains neutral, factual tone
+- **Statistical Objectivity**: AI agent maintains neutral, evidence-based approach
 
 ### Responsible Usage
 - Use for policy research and accountability analysis
 - Respect privacy of all individuals involved
 - Acknowledge limitations in causal inference
 - Consider broader context of police-community relations
+- Apply appropriate statistical rigor to sensitive analyses
 
 ## 🛠️ Technical Requirements
 
 ### Snowflake Environment
 - **Cortex Analyst**: Enabled in your account
 - **Intelligence**: Agent creation capabilities
-- **Warehouse**: Sufficient compute for analytical queries
+- **Warehouse**: Sufficient compute for complex analytical queries
 - **Permissions**: Data loading and semantic model deployment
 
 ### Data Files Needed
@@ -155,26 +186,54 @@ CREATE STAGE uof_csv_stage;
 
 - **[Setup Guide](SETUP_GUIDE.md)**: Complete implementation walkthrough
 - **[Agent Instructions](agent_response_instructions.md)**: AI behavior guidelines
-- **[Sample Prompts](agent_sample_prompts.md)**: 50+ test questions
+- **[Planning Framework](agent_planning_instructions.txt)**: Statistical reasoning protocol
+- **[Sample Prompts](agent_sample_prompts.md)**: 50+ comprehensive test questions
 - **[Table Definitions](snowflake_table_definitions.sql)**: Complete SQL schemas
 - **[Semantic Model](police_use_of_force_semantic_model.yaml)**: Cortex Analyst config
 
+## 🎯 Advanced Query Examples
+
+### Basic Analysis
+```
+"How many use of force incidents were reported by each police service in 2023?"
+"What is the demographic breakdown of individuals involved in incidents?"
+```
+
+### Statistical Disparity Analysis
+```
+"Compare CEW usage rates between racial groups with 95% confidence intervals"
+"Test for statistical significance of injury rate differences by demographics"
+```
+
+### Multi-Variable Control Analysis
+```
+"Analyze racial disparities in force escalation while controlling for age, resistance level, and weapon presence"
+"How do deescalation success rates vary by officer experience and incident context?"
+```
+
+### Interaction Effect Analysis
+```
+"Does the relationship between weapon presence and force type vary by individual demographics?"
+"Test for interaction effects between time of day and police service type on force outcomes"
+```
+
 ## 🤝 Contributing
 
-This project supports police accountability and evidence-based policy making. Contributions that improve analysis capabilities, data quality, or user experience are welcome.
+This project supports police accountability and evidence-based policy making. Contributions that improve analysis capabilities, statistical rigor, or user experience are welcome.
 
 ### Areas for Enhancement
-- Additional analytical dimensions
-- Improved natural language processing
-- Enhanced visualization capabilities
-- Comparative analysis with other jurisdictions
+- Additional statistical methods and robustness checks
+- Enhanced natural language processing for complex queries
+- Expanded visualization capabilities
+- Comparative analysis frameworks with other jurisdictions
 
 ## ⚠️ Disclaimers
 
 - **Data Accuracy**: Analysis based on reported incidents only
-- **No Causal Claims**: Correlation does not imply causation
+- **Statistical Inference**: Correlation does not imply causation
 - **Policy Neutrality**: Tool for analysis, not policy recommendation
 - **Professional Use**: Intended for qualified researchers and analysts
+- **Ongoing Validation**: Results should be validated with domain experts
 
 ## 📄 License
 
@@ -182,8 +241,8 @@ This project is intended for educational and research purposes related to police
 
 ## 📞 Support
 
-For technical implementation questions or data analysis assistance, refer to the comprehensive documentation provided in this repository.
+For technical implementation questions or statistical methodology assistance, refer to the comprehensive documentation provided in this repository.
 
 ---
 
-**Built with Snowflake Cortex Analyst • Designed for Police Accountability Research • Supporting Evidence-Based Policy Making**
+**Built with Snowflake Cortex Analyst • Enhanced with Advanced Statistical Reasoning • Supporting Evidence-Based Police Accountability Research**
