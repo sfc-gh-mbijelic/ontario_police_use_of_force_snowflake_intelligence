@@ -234,6 +234,7 @@ This project supports police accountability and evidence-based policy making. Co
 - **Policy Neutrality**: Tool for analysis, not policy recommendation
 - **Professional Use**: Intended for qualified researchers and analysts
 - **Ongoing Validation**: Results should be validated with domain experts
+<<<<<<< HEAD
 
 ## 📄 License
 
@@ -246,3 +247,5 @@ For technical implementation questions or statistical methodology assistance, re
 ---
 
 **Built with Snowflake Cortex Analyst • Enhanced with Advanced Statistical Reasoning • Supporting Evidence-Based Police Accountability Research**
+=======
+>>>>>>> origin/main
