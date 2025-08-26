@@ -87,6 +87,19 @@ CREATE STAGE uof_csv_stage;
 - **Rich synonyms** for natural language understanding
 - **Business context** integration from data dictionary
 
+### AI-Powered Analysis with Statistical Rigor
+- **Natural language queries** in plain English
+- **Advanced statistical reasoning** with built-in safeguards
+- **Progressive analysis strategies** from descriptive to causal inference
+- **Automatic significance testing** and confidence interval calculations
+- **Multi-dimensional disparity analysis** with proper controls
+
+### Sophisticated Agent Intelligence
+- **Query decomposition** for complex multi-variable analysis
+- **Statistical planning framework** optimized for police data
+- **Ethical sensitivity protocols** for racial disparity research
+- **Quality assurance standards** ensuring analytical rigor
+
 ### Sample Analysis Capabilities
 - *"Compare injury rates between racial groups while controlling for resistance level, weapon presence, and time of day"*
 - *"How do racial disparities in CEW usage vary by police service and officer backup presence?"*
@@ -139,6 +152,36 @@ CREATE STAGE uof_csv_stage;
 - **Confidence interval reporting** for rate comparisons
 - **Multiple testing corrections** when appropriate
 
+## 🔒 Data Privacy & Ethics
+
+### Important Considerations
+- **Sensitive Data**: Contains information about police-civilian interactions
+- **Privacy Protection**: No personally identifiable information
+- **Analytical Purpose**: Designed for policy analysis and accountability
+- **Statistical Objectivity**: AI agent maintains neutral, evidence-based approach
+
+### Responsible Usage
+- Use for policy research and accountability analysis
+- Respect privacy of all individuals involved
+- Acknowledge limitations in causal inference
+- Consider broader context of police-community relations
+- Apply appropriate statistical rigor to sensitive analyses
+
+## 🛠️ Technical Requirements
+
+### Snowflake Environment
+- **Cortex Analyst**: Enabled in your account
+- **Intelligence**: Agent creation capabilities
+- **Warehouse**: Sufficient compute for complex analytical queries
+- **Permissions**: Data loading and semantic model deployment
+
+### Data Files Needed
+- `EN_DATA_DICTIONARY_2023.csv`
+- `Police Use of Force - Main Records 2023.csv`
+- `Police Use of Force - Individual Records 2023.csv` 
+- `Police Use of Force - Cycle Probe Records 2023.csv`
+- `Police Use of Force - Weapons Records 2023.csv`
+
 ## 📖 Documentation
 
 - **[Setup Guide](SETUP_GUIDE.md)**: Complete implementation walkthrough
@@ -182,3 +225,27 @@ This project supports police accountability and evidence-based policy making. Co
 - Additional statistical methods and robustness checks
 - Enhanced natural language processing for complex queries
 - Expanded visualization capabilities
+- Comparative analysis frameworks with other jurisdictions
+
+## ⚠️ Disclaimers
+
+- **Data Accuracy**: Analysis based on reported incidents only
+- **Statistical Inference**: Correlation does not imply causation
+- **Policy Neutrality**: Tool for analysis, not policy recommendation
+- **Professional Use**: Intended for qualified researchers and analysts
+- **Ongoing Validation**: Results should be validated with domain experts
+<<<<<<< HEAD
+
+## 📄 License
+
+This project is intended for educational and research purposes related to police accountability and public policy analysis.
+
+## 📞 Support
+
+For technical implementation questions or statistical methodology assistance, refer to the comprehensive documentation provided in this repository.
+
+---
+
+**Built with Snowflake Cortex Analyst • Enhanced with Advanced Statistical Reasoning • Supporting Evidence-Based Police Accountability Research**
+=======
+>>>>>>> origin/main
