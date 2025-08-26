@@ -991,22 +991,25 @@ SELECT * FROM historical_incidents;
 
 -- Stage for PDF technical reports (with directory enabled)
 CREATE OR REPLACE STAGE UOF_TECHNICAL_REPORTS_STAGE
+ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE')
 DIRECTORY = (ENABLE = TRUE)
-COMMENT = 'Stage for police use of force technical reports, research papers, and policy documents';
+COMMENT = 'Stage for police use of force technical reports with proper encryption';
 
 -- ---------- INGEST PDF ----------
 -- Extract text from all PDFs in the stage using Cortex Parse Document
-CREATE OR REPLACE TABLE UOF_TECHNICAL_REPORTS_RAW AS 
-SELECT 
-    RELATIVE_PATH, 
-    TO_VARCHAR (
-        SNOWFLAKE.CORTEX.PARSE_DOCUMENT (
-            '@UOF_TECHNICAL_REPORTS_STAGE',
-            RELATIVE_PATH, 
-            {'mode': 'LAYOUT'} ) : content
-        ) AS EXTRACTED_CONTENT
-FROM
-    DIRECTORY('@UOF_TECHNICAL_REPORTS_STAGE');
+CREATE OR REPLACE TABLE UOF_TECHNICAL_REPORTS_RAW AS
+SELECT
+    RELATIVE_PATH,
+    TO_VARCHAR(
+        TO_VARIANT(
+            SNOWFLAKE.CORTEX.PARSE_DOCUMENT(
+                '@UOF_TECHNICAL_REPORTS_STAGE',
+                RELATIVE_PATH,
+                {'mode': 'LAYOUT'}
+            )
+        ):content
+    ) AS FULL_DOCUMENT_CONTENT
+FROM DIRECTORY('@UOF_TECHNICAL_REPORTS_STAGE');
 
 -- ---------- CHUNK PDF ----------
 -- Split extracted content into searchable chunks using Cortex
@@ -1027,20 +1030,10 @@ SELECT
     BUILD_SCOPED_FILE_URL(@UOF_TECHNICAL_REPORTS_STAGE, relative_path) AS file_url,
     c.value::TEXT AS chunk, 
     'English' AS language,
-    
-    -- Add document categorization based on filename
-    CASE 
-        WHEN UPPER(relative_path) LIKE '%POLICY%' THEN 'Policy Document'
-        WHEN UPPER(relative_path) LIKE '%RESEARCH%' OR UPPER(relative_path) LIKE '%STUDY%' THEN 'Research Study'
-        WHEN UPPER(relative_path) LIKE '%REPORT%' THEN 'Technical Report'
-        WHEN UPPER(relative_path) LIKE '%GUIDELINE%' OR UPPER(relative_path) LIKE '%STANDARD%' THEN 'Guidelines'
-        WHEN UPPER(relative_path) LIKE '%TRAINING%' THEN 'Training Material'
-        ELSE 'Other Document'
-    END AS document_category
 FROM
     UOF_TECHNICAL_REPORTS_RAW,
     LATERAL FLATTEN(SNOWFLAKE.CORTEX.SPLIT_TEXT_RECURSIVE_CHARACTER(
-        EXTRACTED_CONTENT,
+        FULL_DOCUMENT_CONTENT,
         'markdown',
         2000, -- chunks of 2000 characters each 
         300 -- 300 characters of overlap per chunk
@@ -1049,7 +1042,7 @@ FROM
 -- ---------- CREATE CORTEX SEARCH SERVICE ----------
 CREATE OR REPLACE CORTEX SEARCH SERVICE UOF_TECHNICAL_REPORTS_SEARCH_SERVICE
     ON chunk
-    ATTRIBUTES chunk_id, title, relative_path, file_url, language, document_category
+    ATTRIBUTES chunk_id, title, relative_path, file_url, language
     WAREHOUSE = 'COMPUTE_WH' -- Replace with your warehouse name
     TARGET_LAG = '30 days'
     AS (
@@ -1060,7 +1053,6 @@ CREATE OR REPLACE CORTEX SEARCH SERVICE UOF_TECHNICAL_REPORTS_SEARCH_SERVICE
             relative_path, 
             file_url,      -- HYPERLINK COLUMN: Direct link to source document
             language,
-            document_category
         FROM UOF_TECHNICAL_REPORTS_PROCESSED
     );
 
