@@ -1,24 +1,38 @@
 SNOWFLAKE INTELLIGENCE PLANNING INSTRUCTIONS
-Police Use of Force Dataset - Statistical Reasoning Framework
+Police Use of Force Dataset (2020-2023) - Statistical Reasoning Framework
 
 ==== QUERY ANALYSIS PROTOCOL ====
 
 1. CLASSIFY COMPLEXITY
-   Simple: Single dimension (counts, basic demographics)
-   Complex: Multiple dimensions requiring statistical controls
-   Advanced: Interaction effects, disparity analysis, causal inference
-
+   Simple: Single dimension (counts, basic demographics, single year)
+   Complex: Multiple dimensions requiring statistical controls, cross-year comparisons
+   Advanced: Interaction effects, disparity analysis, causal inference, integrated document analysis
+   
 2. IDENTIFY STATISTICAL REQUIREMENTS
-   Descriptive: Raw counts, percentages, basic trends
-   Comparative: Group differences, rate comparisons
-   Analytical: Controlled analysis, significance testing
-   Causal: Multiple controls, interaction effects
+   Descriptive: Raw counts, percentages, basic trends (single or multi-year)
+   Comparative: Group differences, rate comparisons, year-over-year trends
+   Analytical: Controlled analysis, significance testing, historical context
+   Causal: Multiple controls, interaction effects, policy impact assessment
+   Integrated: Statistical analysis combined with PDF document research
 
 3. DATASET KNOWLEDGE CHECK
+   
+   2023 DETAILED DATA:
    Available dimensions: race_category, age_group, gender, time_period, police_service, resistance_level, weapon_category, force types, injury_status, deescalation_attempted
    Key relationships: incident_id links to individual records, weapon_count and technique_counts are numeric facts
    Sample sizes: ~12,800 individual records, ~10,900 incidents
-   Missing data patterns: weapon_category NULL when no weapons, some demographic fields may be NULL
+   
+   2020-2022 HISTORICAL DATA:
+   Available dimensions: data_year, police_service, force types (simplified), incident_type, location_type, weapons_carried, injury_status (limited)
+   Schema differences: Most demographic fields default to 'Unknown', different force type categorization
+   Sample sizes: Varies by year, generally comparable volumes
+   
+   PDF DOCUMENT SEARCH:
+   Document types: Policy, Research, Guidelines, Training materials
+   Search capabilities: Semantic search through chunked content
+   Integration: Can supplement statistical analysis with policy context
+   
+   Missing data patterns: Historical data has more 'Unknown' values, weapon_category NULL when no weapons present
 
 ==== STATISTICAL REASONING STEPS ====
 
@@ -42,6 +56,22 @@ FOR TEMPORAL ANALYSIS:
 2. Examine time_period effects (morning/afternoon/evening/night)
 3. Control for varying incident volumes
 4. Test for linear vs cyclical trends
+
+FOR HISTORICAL TREND ANALYSIS (2020-2023):
+1. Acknowledge data quality differences between periods
+2. Focus on comparable metrics across years (force types, basic demographics where available)
+3. Calculate year-over-year percentage changes
+4. Test for statistical significance of trends
+5. Control for data source differences when comparing 2020-2022 vs 2023
+6. Provide context about potential policy or operational changes
+
+FOR PDF DOCUMENT INTEGRATION:
+1. Use document search to provide policy context for statistical findings
+2. Search for relevant guidelines when analyzing force usage patterns
+3. Look for research studies that support or contradict statistical findings
+4. Reference training materials when discussing best practices
+5. Acknowledge document search limitations and relevance
+6. Clearly distinguish between statistical findings and document content
 
 ==== CORTEX ANALYST ROUTING ====
 
@@ -168,3 +198,30 @@ TEMPORAL TREND:
 3. Check for seasonal patterns
 4. Control for other time-varying factors
 5. Statistical significance of trend
+
+HISTORICAL TREND ANALYSIS (2020-2023):
+"How have [outcome] patterns changed from 2020 to 2023?"
+1. [Outcome] rates by year (acknowledge data source differences)
+2. Calculate year-over-year change percentages
+3. Test significance of multi-year trends
+4. Compare 2020-2022 aggregate vs 2023 detailed patterns
+5. Search for policy documents about relevant changes
+6. Provide context about data quality differences
+
+PDF DOCUMENT INTEGRATION QUERY:
+"Analyze [statistical finding] and find relevant policy context"
+1. Complete statistical analysis for [finding]
+2. Search for policy documents related to [topic]
+3. Search for research studies about [finding]
+4. Look for training materials addressing [issue]
+5. Integrate document insights with statistical results
+6. Clearly distinguish data findings from document content
+
+POLICY IMPACT ASSESSMENT:
+"Has [policy area] shown improvement from 2020 to 2023?"
+1. Identify relevant metrics for [policy area]
+2. Calculate trends across available years
+3. Search for policy documents about [area]
+4. Note data limitations for causal inference
+5. Compare statistical trends with stated policy goals
+6. Acknowledge confounding factors and alternative explanations

@@ -2,7 +2,7 @@
 
 ## Testing Your Snowflake Intelligence Agent
 
-Use these sample prompts to test your agent's capabilities across different analysis areas.
+Use these sample prompts to test your agent's capabilities across different analysis areas, including historical trend analysis (2020-2023) and PDF document search features.
 
 ### Basic Data Overview
 ```
@@ -258,21 +258,144 @@ What role does location type play in force escalation decisions?
 Analyze the effectiveness of different deescalation technique combinations.
 ```
 
+## Historical Trend Analysis (2020-2023)
+
+### Multi-Year Comparisons
+```
+How have use of force incidents changed from 2020 to 2023?
+```
+
+```
+Compare injury rates between 2020-2022 and 2023 data.
+```
+
+```
+What trends do we see in CEW usage over the 4-year period?
+```
+
+```
+Has the frequency of deescalation attempts increased over time?
+```
+
+### Policy Impact Assessment
+```
+Are there notable changes in force patterns that might indicate policy changes?
+```
+
+```
+How do racial disparities in 2023 compare to historical patterns?
+```
+
+```
+What year-over-year variations exist in officer injury rates?
+```
+
+### Historical Context Analysis
+```
+Which years had the highest rates of force-related injuries?
+```
+
+```
+How have incident characteristics evolved from 2020 to 2023?
+```
+
+```
+Are there seasonal patterns that are consistent across all years?
+```
+
+## PDF Document Search Integration
+
+### Policy Document Research
+```
+Find policy documents about deescalation techniques and procedures.
+```
+
+```
+Search for guidelines on use of force reporting requirements.
+```
+
+```
+Look for policy documents about officer safety protocols.
+```
+
+```
+Find training materials related to CEW usage guidelines.
+```
+
+### Research and Studies
+```
+Search for research studies about racial disparities in police use of force.
+```
+
+```
+Find academic research on deescalation effectiveness.
+```
+
+```
+Look for studies on injury prevention in police use of force.
+```
+
+```
+Search for research on bias in police use of force decisions.
+```
+
+### Training and Guidelines
+```
+Find training materials about cultural sensitivity in policing.
+```
+
+```
+Search for guidelines on mental health crisis intervention.
+```
+
+```
+Look for training documents about de-escalation techniques.
+```
+
+```
+Find materials about use of force documentation requirements.
+```
+
+### Integrated Analysis Prompts
+```
+Analyze CEW usage trends and find relevant training documents about CEW policies.
+```
+
+```
+Compare racial disparity data with policy documents about bias prevention.
+```
+
+```
+Examine injury trends and search for safety protocol documents.
+```
+
+```
+Review deescalation statistics and find related training materials.
+```
+
 ## Tips for Using These Prompts
 
 1. **Start Simple**: Begin with basic overview questions to test data connectivity
-2. **Build Complexity**: Gradually move to more complex multi-dimensional analyses
-3. **Test Edge Cases**: Try questions that might reveal data limitations
-4. **Verify Responses**: Cross-check agent responses against your known data
-5. **Refine Questions**: Adjust prompts based on how well the agent understands them
-6. **Document Issues**: Note any questions that produce unclear or incorrect responses
+2. **Test Historical Integration**: Verify that multi-year queries work correctly
+3. **Check PDF Search**: Test document search functionality if configured
+4. **Build Complexity**: Gradually move to more complex multi-dimensional analyses
+5. **Test Edge Cases**: Try questions that might reveal data limitations
+6. **Verify Responses**: Cross-check agent responses against your known data
+7. **Test Integrated Analysis**: Try prompts that combine statistical data with document search
+8. **Refine Questions**: Adjust prompts based on how well the agent understands them
+9. **Document Issues**: Note any questions that produce unclear or incorrect responses
 
 ## Expected Response Quality
 
 Your agent should:
-- Provide specific numbers and percentages
-- Include appropriate context about data limitations
+- Provide specific numbers and percentages for both current and historical data
+- Include appropriate context about data limitations, especially for historical periods
+- **Historical Analysis**: Clearly distinguish between data sources (2020-2022 vs. 2023)
+- **PDF Search**: Reference relevant documents and acknowledge search limitations
+- **Integrated Responses**: Combine statistical findings with document insights when appropriate
 - Explain technical terms (CEW, OC spray, etc.)
 - Acknowledge when data doesn't support certain conclusions
+- Note data quality differences between historical and current datasets
 - Suggest related questions when appropriate
 - Maintain professional, objective tone throughout
+- **Multi-Year Context**: Provide appropriate context for trend interpretations
