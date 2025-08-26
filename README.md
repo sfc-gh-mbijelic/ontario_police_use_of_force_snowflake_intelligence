@@ -2,41 +2,59 @@
 
 ## 📊 Overview
 
-This repository contains a complete solution for analyzing Ontario police use of force data (2023) using Snowflake Cortex Analyst and Intelligence. The project provides semantic data modeling, AI-powered analysis capabilities, intelligent agent responses, and sophisticated statistical reasoning frameworks for law enforcement accountability and policy insights.
+This repository contains a complete solution for analyzing Ontario police use of force data (2020-2023) using Snowflake Cortex Analyst and Intelligence. The project provides semantic data modeling, AI-powered analysis capabilities, intelligent agent responses, PDF technical report search capabilities, and sophisticated statistical reasoning frameworks for law enforcement accountability and policy insights.
 
 ## 🗂️ Dataset
 
-**Source**: Ontario Police Use of Force Data 2023
+**Source**: Ontario Police Use of Force Data (2020-2023)
+
+### 2023 Current Data
 - **Main Records**: ~10,900 incident records
 - **Individual Records**: ~12,800 individual involvement records  
 - **Weapons Records**: ~8,700 weapon presence records
 - **CEW Cycle Records**: ~1,100 conducted energy weapon usage records
 - **Data Dictionary**: 730 metadata definitions
 
+### 2020-2022 Historical Data
+- **Aggregate Summary**: Multi-year trends by category and measure
+- **Detailed Dataset**: Historical incident records with comprehensive force tracking
+
 **Geographic Coverage**: Ontario, Canada (Municipal Police + Ontario Provincial Police)
+**Temporal Coverage**: 2020-2023 (4 years of comprehensive data)
 
 ## 🏗️ Architecture
 
 ```
 CSV Data Files → Snowflake Tables → Semantic View → Cortex Analyst → Intelligence Agent
+PDF Reports   → Stage → Parse → Chunk → Search Service → Enhanced Analysis
 ```
 
 ### Key Components:
 - **Snowflake Data Warehouse**: Stores and processes police use of force data
 - **Semantic Data Model**: YAML configuration for AI understanding
-- **Cortex Analyst**: AI-powered analytical engine
+- **Cortex Analyst**: AI-powered analytical engine for structured data
+- **Cortex Search Service**: AI-powered PDF technical report search
 - **Intelligence Agent**: Natural language query interface with advanced reasoning
+- **Integrated Analysis**: Combined insights from structured data and document search
 
 ## 📁 Repository Structure
 
 ```
-├── snowflake_table_definitions.sql          # Complete table schemas + semantic view
+├── snowflake_table_definitions.sql          # Complete table schemas + semantic view + search service
 ├── police_use_of_force_semantic_model.yaml  # Cortex Analyst configuration
 ├── agent_response_instructions.md           # AI agent behavior guidelines
-├── agent_sample_prompts.md                  # 50+ example queries for testing
-├── agent_planning_instructions.txt          # Statistical reasoning framework
-├── SETUP_GUIDE.md                          # Step-by-step implementation guide
+├── CORTEX_ANALYST_SAMPLE_QUERIES.md         # 215 lines of comprehensive sample queries
+├── documentation/                           # Detailed setup and usage guides
+│   ├── agent_planning_instructions.txt      # Statistical reasoning framework
+│   ├── agent_response_instructions.md       # Agent behavior configuration
+│   ├── agent_sample_prompts.md              # 50+ example queries for testing
+│   └── SETUP_GUIDE.md                       # Implementation walkthrough
 ├── examples/                                # Sample queries and use cases
+├── data/                                    # CSV data files (2020-2023)
+│   ├── EN_DATA_DICTIONARY_2023.csv          # Metadata definitions
+│   ├── Police Use of Force - *.csv          # 2023 incident data (5 files)
+│   ├── useofforce_agrregatesummarybyyear_2020-2022.csv    # Historical aggregates
+│   └── useofforce_detaileddataset_2020-2022.csv          # Historical detailed data
 ├── .gitignore                              # Data protection configuration
 └── README.md                               # This file
 ```
@@ -44,8 +62,9 @@ CSV Data Files → Snowflake Tables → Semantic View → Cortex Analyst → Int
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Snowflake account with Cortex Analyst enabled
-- Ontario Police Use of Force CSV data files (2023)
+- Snowflake account with Cortex Analyst and Search Services enabled
+- Ontario Police Use of Force CSV data files (2020-2023)
+- PDF technical reports (optional, for enhanced search capabilities)
 - Appropriate data access permissions
 
 ### 1. Set Up Snowflake Tables
@@ -55,7 +74,8 @@ USE DATABASE your_database;
 USE SCHEMA your_schema;
 
 -- Execute snowflake_table_definitions.sql
--- This creates 5 tables + 1 comprehensive semantic view
+-- This creates 7 tables + 1 comprehensive semantic view + PDF search service
+-- Includes both 2023 current data and 2020-2022 historical data integration
 ```
 
 ### 2. Load Data
@@ -64,7 +84,10 @@ USE SCHEMA your_schema;
 CREATE STAGE uof_csv_stage;
 
 -- Use Snowsight Load Data wizard or COPY INTO commands
--- to load your 5 CSV files into the tables
+-- to load your 7 CSV files into the tables (5 x 2023 + 2 x historical)
+
+-- Optional: Load PDF technical reports
+-- Upload PDFs to UOF_TECHNICAL_REPORTS_STAGE for enhanced search capabilities
 ```
 
 ### 3. Deploy Semantic Model
@@ -176,19 +199,29 @@ CREATE STAGE uof_csv_stage;
 - **Permissions**: Data loading and semantic model deployment
 
 ### Data Files Needed
+
+#### 2023 Current Data (5 files)
 - `EN_DATA_DICTIONARY_2023.csv`
 - `Police Use of Force - Main Records 2023.csv`
 - `Police Use of Force - Individual Records 2023.csv` 
 - `Police Use of Force - Cycle Probe Records 2023.csv`
 - `Police Use of Force - Weapons Records 2023.csv`
 
+#### 2020-2022 Historical Data (2 files)
+- `useofforce_agrregatesummarybyyear_2020-2022.csv`
+- `useofforce_detaileddataset_2020-2022.csv`
+
+#### Optional PDF Reports
+- Technical reports, research studies, policy documents (for search service)
+
 ## 📖 Documentation
 
-- **[Setup Guide](SETUP_GUIDE.md)**: Complete implementation walkthrough
 - **[Agent Instructions](agent_response_instructions.md)**: AI behavior guidelines
-- **[Planning Framework](agent_planning_instructions.txt)**: Statistical reasoning protocol
-- **[Sample Prompts](agent_sample_prompts.md)**: 50+ comprehensive test questions
-- **[Table Definitions](snowflake_table_definitions.sql)**: Complete SQL schemas
+- **[Sample Queries](CORTEX_ANALYST_SAMPLE_QUERIES.md)**: 215 lines of comprehensive sample queries and use cases
+- **[Planning Framework](documentation/agent_planning_instructions.txt)**: Statistical reasoning protocol
+- **[Additional Prompts](documentation/agent_sample_prompts.md)**: 50+ comprehensive test questions
+- **[Setup Guide](documentation/SETUP_GUIDE.md)**: Complete implementation walkthrough
+- **[Table Definitions](snowflake_table_definitions.sql)**: Complete SQL schemas with search service
 - **[Semantic Model](police_use_of_force_semantic_model.yaml)**: Cortex Analyst config
 
 ## 🎯 Advanced Query Examples
@@ -227,6 +260,25 @@ This project supports police accountability and evidence-based policy making. Co
 - Expanded visualization capabilities
 - Comparative analysis frameworks with other jurisdictions
 
+## 🆕 Latest Features
+
+### PDF Technical Report Search
+- **Cortex Search Service**: AI-powered search through technical reports and policy documents
+- **Document Categorization**: Automatic classification of reports (Policy, Research, Guidelines, etc.)
+- **Integrated Analysis**: Combine structured data insights with document search results
+- **Chunked Processing**: Documents split into searchable 2000-character chunks with overlap
+
+### Historical Data Integration (2020-2022)
+- **Trend Analysis**: Multi-year comparisons with 4 years of comprehensive data
+- **Unified Semantic View**: Seamlessly query across 2020-2023 timeframe using UNION ALL
+- **Comprehensive Coverage**: Both aggregate summaries and detailed incident records
+- **Data Source Indicators**: Clear labeling of historical vs. current data in results
+
+### Enhanced Data Handling
+- **Flexible Data Types**: VARCHAR columns for mixed data (text/numeric) in historical tables
+- **Error-Resistant Loading**: Comprehensive NULL handling for problematic CSV values
+- **Data Quality Features**: Built-in data profiling and validation capabilities
+
 ## ⚠️ Disclaimers
 
 - **Data Accuracy**: Analysis based on reported incidents only
@@ -234,7 +286,6 @@ This project supports police accountability and evidence-based policy making. Co
 - **Policy Neutrality**: Tool for analysis, not policy recommendation
 - **Professional Use**: Intended for qualified researchers and analysts
 - **Ongoing Validation**: Results should be validated with domain experts
-<<<<<<< HEAD
 
 ## 📄 License
 
@@ -246,6 +297,4 @@ For technical implementation questions or statistical methodology assistance, re
 
 ---
 
-**Built with Snowflake Cortex Analyst • Enhanced with Advanced Statistical Reasoning • Supporting Evidence-Based Police Accountability Research**
-=======
->>>>>>> origin/main
+**Built with Snowflake Cortex Analyst & Search • Enhanced with PDF Document Intelligence • 4 Years of Historical Data • Supporting Evidence-Based Police Accountability Research**
